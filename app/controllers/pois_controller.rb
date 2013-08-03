@@ -1,4 +1,5 @@
 class PoisController < ApplicationController
+  before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
   before_action :set_poi, only: [:show, :edit, :update, :destroy]
 
   # GET /pois
@@ -22,6 +23,7 @@ class PoisController < ApplicationController
   # POST /pois
   def create
     @poi = Poi.new(poi_params)
+    @poi.created_by = current_user
 
     if @poi.save
       redirect_to @poi, notice: 'Poi was successfully created.'
