@@ -16,7 +16,7 @@ class Poi
     location[0]
   end
 
-  def longtitude
+  def longitude
     location[1]
   end
 end

@@ -53,7 +53,7 @@ class PoisController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def poi_params
-      params[:location] = [params.delete(:longtitude), params.delete(:latitude)]
+      params[:poi][:location] = [params[:poi].delete(:longitude), params[:poi].delete(:latitude)]
       params.require(:poi).permit(:location, :category, :title, :description)
     end
 end
