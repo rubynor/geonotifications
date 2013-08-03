@@ -1,4 +1,12 @@
 GIT
+  remote: git://github.com/milgner/compass-rails.git
+  revision: c86e7fd9c2605c80816a2f64a3fb8b7c3a09e494
+  branch: rails4
+  specs:
+    compass-rails (1.0.3)
+      compass (>= 0.12.2, < 0.14)
+
+GIT
   remote: git://github.com/mongoid/mongoid.git
   revision: 88599cf64c3d6df9a1277178ced69cd45d30c2f1
   specs:
@@ -159,7 +167,7 @@ PLATFORMS
 DEPENDENCIES
   bson_ext
   coffee-rails (~> 4.0.0)
-  compass (~> 0.12.2)
+  compass-rails!
   devise
   jquery-rails
   letter_opener
