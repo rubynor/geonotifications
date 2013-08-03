@@ -1,7 +1,6 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
+location = [59.1356, 9.6]
+
+unless Poi.where(location: location).first
+  poi = Poi.create(location: location, category: 'estate_for_sale', title: 'funkisbolig', description: 'med fabuloso utsikt!')
+  puts "created #{poi.inspect}"
+end
