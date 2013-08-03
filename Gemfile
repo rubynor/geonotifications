@@ -26,6 +26,9 @@ gem 'turbolinks'
 gem 'mongoid', git: 'git://github.com/mongoid/mongoid.git'
 gem 'bson_ext'
 
+# Compass
+gem 'compass', '~> 0.12.2'
+
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 #gem 'jbuilder', '~> 1.2'
 

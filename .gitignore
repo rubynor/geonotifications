@@ -17,3 +17,7 @@
 
 #Ignore IDEA (RubyMine)
 /.idea
+
+# Node Modules
+app/node_modules/*
+npm-debug.log
