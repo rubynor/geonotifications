@@ -15,13 +15,6 @@ $(function () {
 
         var initialize = function (c) {
             container = c;
-
-            // Events
-            $(document).on('click', '#save-areas', function(ev) {
-
-                ev.preventDefault();
-            });
-
             bindEvents();
 
         };
@@ -29,10 +22,6 @@ $(function () {
         var bindEvents = function() {
             $(document).on('area:added', function(ev) {
                 $('#save-areas').fadeIn();
-            });
-
-            $(document).on('click', '#save-areas', function(ev) {
-
             });
         };
 
