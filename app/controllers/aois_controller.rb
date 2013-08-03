@@ -1,4 +1,5 @@
 class AoisController < ApplicationController
+  before_action :authenticate_user!
 
   def create
     area = params.require(:area).permit(:title, locations: [])
@@ -7,6 +8,8 @@ class AoisController < ApplicationController
     end
 
     aoi = Aoi.new(area)
+    aoi.user = current_user
+
     if aoi.save
       redirect_to root_url
     else
