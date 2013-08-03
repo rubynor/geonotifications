@@ -7,10 +7,9 @@ $(function () {
     geo.Area = function () {
         var container,
             // Todo: refactor/clean up/move template from this file!.
-            inputTemplateString = '<p class="area"><input type="text" name="area[<%= i %>][title]" placeholder="Area title" />' +
+            inputTemplateString = '<p class="area"><input type="text" name="area[title]" placeholder="Area title" />' +
                                   '<% _.each(area, function(area, pi) { %>' +
-                                  '<p><input type="hidden" name="area[<%= i %>][point][<%= pi %>][lat]" value="<%= area.lat %>"/></p>' +
-                                  '<input type="hidden" name="area[<%= i %>][point][<%= pi %>][lng]" value="<%= area.lng %>"/>' +
+                                  '<p><input type="hidden" name="area[locations][]" value="<%= [area.lat, area.lng] %>"/></p>' +
                                   '<% }); %>';
 
 

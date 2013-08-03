@@ -5,14 +5,14 @@
     <h1>Geonotification</h1>
 
     <div id="areas-container">
-      <form>
+        <%= form_tag '/aois' do -%>
         <div id="areas">
 
         </div>
         <p>
-           <input type="submit" value="Save" id="save-areas"/>
+           <%= submit_tag "Save areas" %>
         </p>
-      </form>
+        <% end -%>
     </div>
 
   </div>
