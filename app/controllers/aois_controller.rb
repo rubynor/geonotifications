@@ -1,5 +1,11 @@
 class AoisController < ApplicationController
   before_action :authenticate_user!
+  respond_to :json, :html
+
+  def index
+    @aoi = current_user.aois
+    respond_with @aoi
+  end
 
   def create
     area = params.require(:area).permit(:title, locations: [])
