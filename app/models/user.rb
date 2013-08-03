@@ -39,4 +39,5 @@ class User
   # field :authentication_token, :type => String
 
   has_many :pois, inverse_of: :created_by
+  has_many :aois
 end
