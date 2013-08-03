@@ -35,10 +35,12 @@ gem 'devise'
 
 group :development, :test do
   gem 'rspec-rails'
+  gem 'factory_girl_rails'
 end
 
 group :development do
   gem 'letter_opener'
+  gem 'zeus'
 end
 
 group :doc do
