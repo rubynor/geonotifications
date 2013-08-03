@@ -1,15 +1,21 @@
 //= require turbolinks
 
+
 /* App */
 'use strict';
-var App = function () {
-    var initialize = function () {
-        Map.initialize();
-    };
+var geo = geo || {};
 
-    return {
-        initialize:initialize
-    }
-}();
+$(function () {
+    geo.App = function () {
+        var initialize = function () {
+            geo.Map.initialize();
+            geo.Area.initialize($('#areas'));
+        };
 
-App.initialize();
+        return {
+            initialize: initialize
+        }
+    }();
+
+    geo.App.initialize();
+})
