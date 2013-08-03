@@ -27,7 +27,7 @@ gem 'mongoid', git: 'git://github.com/mongoid/mongoid.git'
 gem 'bson_ext'
 
 # Compass
-gem 'compass', '~> 0.12.2'
+gem "compass-rails", github: "milgner/compass-rails", branch: "rails4"
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 #gem 'jbuilder', '~> 1.2'
