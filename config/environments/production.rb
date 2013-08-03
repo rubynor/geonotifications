@@ -78,5 +78,15 @@ Geonotifications::Application.configure do
   # Use default logging formatter so that PID and timestamp are not suppressed.
   config.log_formatter = ::Logger::Formatter.new
 
-  config.action_mailer.default_url_options = { :host => 'localhost:3000' }
+  config.action_mailer.default_url_options = { :host => 'geolocations.herokuapp.com' }
+
+  ActionMailer::Base.smtp_settings = {
+      :address              => 'smtp.domeneshop.no',
+      :port                 => 587,
+      :authentication       => :login,
+      :domain               => "geolocations.herokuapp.com",
+      :user_name            => 'rubynor11',
+      :password             => 'WiQYcLg9'
+  }
+
 end
