@@ -5,6 +5,8 @@ class Poi
   field :title, type: String
   field :description, type: String
 
+  belongs_to :created_by, class_name: 'User'
+
   validates :location, presence: true, length: {is: 2 }
   validates :category, presence: true
   index({ location: "2d" }, { min: -200, max: 200 })

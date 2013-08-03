@@ -37,4 +37,6 @@ class User
 
   ## Token authenticatable
   # field :authentication_token, :type => String
+
+  has_many :pois, inverse_of: :created_by
 end
