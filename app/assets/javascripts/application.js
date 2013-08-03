@@ -12,6 +12,8 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require underscore.min
 //= require turbolinks
 //= require map
+//= require area
 //= require app
