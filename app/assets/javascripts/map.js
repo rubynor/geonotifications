@@ -33,10 +33,9 @@ $(function () {
                 markerOptions: {
                     icon: '' // Add marker image?
                 },
-                circleOptions: {
-                    fillColor: '#ffff00',
-                    fillOpacity: 1,
-                    strokeWeight: 5,
+                polygonOptions: {
+                    fillOpacity: 0.3,
+                    strokeWeight: 2,
                     clickable: false,
                     editable: true,
                     zIndex: 1
@@ -49,17 +48,28 @@ $(function () {
         // Map events
         var bindEvents = function () {
             google.maps.event.addListener(drawingManager, 'overlaycomplete', function (event) {
-                var points = event.overlay.getPath().getArray();
 
-                var area = [];
-                $.each(points, function (i, point) {
-                    area.push({ lat: point.lat(), lng: point.lng()});
+                // Event: Impossible to add multiple events?
+                google.maps.event.addListener(event.overlay.getPath(), 'set_at', function() {
+                    formatData(event);
                 });
-
-                // Add area to right toolbar
-                geo.Area.addArea(area);
-
+                google.maps.event.addListener(event.overlay.getPath(), 'insert_at', function() {
+                    formatData(event);
+                });
+                formatData(event);
             });
+        };
+
+        var formatData = function(event) {
+            var points = event.overlay.getPath().getArray();
+            var area = [];
+
+            $.each(points, function (i, point) {
+                area.push({ lat: point.lat(), lng: point.lng() });
+            });
+
+            // Add area to right toolbar
+            geo.Area.addArea(area, event.overlay.__gm_id);
         };
 
         var addAreaToMap = function(area) {

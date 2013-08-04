@@ -7,7 +7,7 @@ $(function () {
     geo.Area = function () {
         var container,
             // Todo: refactor/clean up/move template from this file!.
-            inputTemplateString = '<p class="area"><input type="text" name="area[title]" placeholder="Area title" />' +
+            inputTemplateString = '<p class="area" id="area_<%= id %>"><input type="text" name="area[title]" placeholder="Area title" value="<%= title %>"/>' +
                                   '<% _.each(area, function(area, pi) { %>' +
                                   '<p><input type="hidden" name="area[locations][]" value="<%= [area.lat, area.lng] %>"/></p>' +
                                   '<% }); %>';
@@ -25,10 +25,24 @@ $(function () {
             });
         };
 
-        var addArea = function (area) {
-            var i = container.find('.area').length;
-            var t = _.template(inputTemplateString, { i:i, area:area });
-            container.append(t);
+        var addArea = function (area, id) {
+            var i;
+
+            // Remove area if exist
+            var existingArea = $('#area_'+id);
+
+            if (existingArea.length) {
+                i = $('.area').index(existingArea);
+                var title = existingArea.find('input[type=text]').val();
+                var t = _.template(inputTemplateString, { i:i, area:area, id: id, title: title });
+                container.replaceWith(t);
+            } else {
+                i = container.find('.area').length;
+                var t = _.template(inputTemplateString, { i:i, area:area, id: id, title: "" });
+                container.append(t);
+            }
+
+
             $(document).trigger('area:added');
         };
 
