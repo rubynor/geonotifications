@@ -1,0 +1,10 @@
+Hi,
+
+Something happened in your area of interest, <%= @aoi.title  %>
+
+
+<% @pois.each do |poi| %>
+    <%= poi.title %>
+    <%= poi.description  %>
+
+<% end %>
