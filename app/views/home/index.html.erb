@@ -1,24 +1,28 @@
-<div id="app-container">
-  <div id="map-container"></div>
+<div class="container">
+  <div class="row">
 
-  <div id="toolbar">
-    <h1>Geonotification</h1>
-    <% if user_signed_in? %>
-        <%= link_to 'Sign out', destroy_user_session_path, method: :delete %>
-    <% else %>
-        <%= link_to 'Sign in',  new_user_session_path %>
-  <% end %>
-    <div id="areas-container">
-        <%= form_tag '/aois' do -%>
-        <div id="areas">
+    <div class="col col-lg-9 col-sm-9">
+      <div id="map-container">
 
-        </div>
-        <p>
-           <%= submit_tag "Save areas", id: 'save-areas' %>
-        </p>
-        <% end -%>
+      </div>
     </div>
 
-  </div>
+    <div id="toolbar" class="col col-lg-3 col-sm-3">
+      <% if user_signed_in? %>
+          <%= link_to 'Sign out', destroy_user_session_path, method: :delete %>
+      <% else %>
+          <%= link_to 'Sign in', new_user_session_path %>
+      <% end %>
+      <div id="areas-container">
+        <%= form_tag '/aois' do -%>
+            <div id="areas">
 
+            </div>
+            <p>
+              <%= submit_tag "Save areas", id: 'save-areas' %>
+            </p>
+        <% end -%>
+      </div>
+    </div>
+  </div>
 </div>
