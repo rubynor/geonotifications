@@ -13,10 +13,10 @@ class Poi
   index({ category: 1})
 
   def latitude
-    location[0]
+    location[0] if location
   end
 
   def longitude
-    location[1]
+    location[1] if location
   end
 end

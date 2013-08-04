@@ -23,6 +23,12 @@
             </p>
         <% end -%>
       </div>
+
+      <div id="poi-container">
+        <% if user_signed_in? %>
+            <%= link_to 'Create POI', new_poi_path  %>
+        <% end %>
+      </div>
+
     </div>
-  </div>
 </div>
