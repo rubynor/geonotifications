@@ -2,22 +2,27 @@ class PoisController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
   before_action :set_poi, only: [:show, :edit, :update, :destroy]
 
+  respond_to :json, :html
   # GET /pois
   def index
     @pois = Poi.all
+    respond_with @pois
   end
 
   # GET /pois/1
   def show
+    respond_with @poi
   end
 
   # GET /pois/new
   def new
     @poi = Poi.new
+    respond_with @poi
   end
 
   # GET /pois/1/edit
   def edit
+    respond_with @poi
   end
 
   # POST /pois
