@@ -11,13 +11,8 @@ describe PoiJob do
                                                                   [59.1370, 9.5],
                                                                   [59.1340, 9.5],
                                                                   [59.1340, 9.75]]
-
     user = create :user, aois: [aoi]
-
-
-    puts "alle: ", User.all.map(&:email)
-    puts "aois: ", Aoi.all.map(&:title)
-    puts "pois: ", Poi.all.map(&:title)
+    aoi.save
 
     PoiJob.send_poi_mails
 
