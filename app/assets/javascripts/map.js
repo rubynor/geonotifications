@@ -62,9 +62,14 @@ $(function () {
             });
         };
 
+        var addAreaToMap = function(area) {
+            area.setMap(map);
+        };
+
         // Return public methods
         return {
-            initialize: initialize
+            initialize: initialize,
+            addAreaToMap: addAreaToMap
         }
     }();
 });

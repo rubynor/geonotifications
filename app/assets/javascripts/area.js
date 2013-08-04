@@ -36,10 +36,36 @@ $(function () {
 
         };
 
+        var fetchAreas = function () {
+            $.ajax({
+                url: '/aois',
+                type: 'get',
+                dataType: 'json',
+                success: function(response) {
+                    $.each(response, function(i, area) {
+                        var paths = [];
+                        $.each(area.locations, function(i, path) {
+                            paths.push(new google.maps.LatLng(path[0], path[1]));
+                        });
+                        var myArea = new google.maps.Polygon({
+                           paths: paths,
+                        });
+                        geo.Map.addAreaToMap(myArea);
+                    });
+
+
+                },
+                error: function(ev, xhr, s, err) {
+
+                }
+            });
+        };
+
         return {
             initialize: initialize,
             addArea: addArea,
-            removeArea: removeArea
+            removeArea: removeArea,
+            fetchAreas: fetchAreas
         }
     }();
 });
