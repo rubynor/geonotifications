@@ -7,11 +7,10 @@ describe Poi do
   let(:poi3) { create :poi, location: [59.1375, 9.7], title: 'hytta' }
 
   it 'should find points of interest by area' do
-    aoi = create :aoi, locations: [
-        [59.1370, 9.75],
-        [59.1370, 9.5],
-        [59.1340, 9.75],
-        [59.1340, 9.5]]
+    aoi = create :aoi, locations: [[59.1370, 9.75],
+                                   [59.1370, 9.5],
+                                   [59.1340, 9.5],
+                                   [59.1340, 9.75]]
 
     pois = Poi.within_polygon(location: aoi.locations)
 
